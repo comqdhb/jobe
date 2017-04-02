@@ -95,5 +95,10 @@ class Java_Task extends Task {
     public function filteredStderr() {
         return str_replace("\n\t", "\n        ", $this->stderr);
     }
+
+    //nb needs changing to incorporate security.policy
+    public function getRunCommandX(){
+        return array($this->getExecutablePath(),"");
+    }
 };
 

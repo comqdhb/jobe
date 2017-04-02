@@ -91,7 +91,7 @@ all currently-supported languages is the following
     apt-get install apache2 php libapache2-mod-php php-mcrypt mysql-server\
           php-mysql php-cli octave nodejs\
           git python3 build-essential openjdk-8-jre openjdk-8-jdk python3-pip\
-          fp-compiler pylint acl
+          fp-compiler pylint acl dos2unix
     pylint --reports=no --generate-rcfile > /etc/pylintrc
 
 [octave, fp and pylint are required only if you need to run Octave or Pascal
