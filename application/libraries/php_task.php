@@ -15,7 +15,12 @@ require_once('application/libraries/LanguageTask.php');
 class Php_Task extends Task {
     public function __construct($source, $filename, $input, $params) {
         Task::__construct($source, $filename, $input, $params);
-        $this->default_params['interpreterargs'] = array('--no-php-ini');
+        $this->default_params['memorylimit'] = 20000000;
+        if (isset($params['memorylimit']) && $params['memorylimit'] < 20000000) {
+            $params['memorylimit'] = 20000000;  // Minimum for Java 8 JVM
+        }
+        //$this->default_params['interpreterargs'] = array('--no-php-ini');
+        
     }
 
     public static function getVersionCommand() {
