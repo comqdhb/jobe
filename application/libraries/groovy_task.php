@@ -16,12 +16,14 @@ class Groovy_Task extends Task {
     public function __construct($source, $filename, $input, $params) {
         $params['memorylimit'] = 0;    // Disregard memory limit - let JVM manage memory
         $this->default_params['numprocs'] = 256;     // Java 8 wants lots of processes
-        $this->default_params['interpreterargs'] = array(
+	/*
+	$this->default_params['interpreterargs'] = array(
              "-Xrs",   //  reduces usage signals by java, because that generates debug
                        //  output when program is terminated on timelimit exceeded.
              "-Xss8m",
              "-Xmx200m"
         );
+	*/
 
         if (isset($params['numprocs']) && $params['numprocs'] < 256) {
             $params['numprocs'] = 256;  // Minimum for Java 8 JVM
@@ -57,6 +59,7 @@ class Groovy_Task extends Task {
     // A default name for groovy programs. [Called only if API-call does
     // not provide a filename]
     public function defaultFileName($sourcecode) {
+/*
         $main = $this->getMainClass($sourcecode);
         if ($main === FALSE) {
             $this->cmpinfo .= "WARNING: can't determine main class, so source file has been named 'prog.java', which probably won't compile.";
@@ -64,6 +67,7 @@ class Groovy_Task extends Task {
         } else {
             //return $main.'.java';
 	}
+*/
 	return 'file.groovy';
     }
 
