@@ -12,7 +12,7 @@
 
 require_once('application/libraries/LanguageTask.php');
 
-class Java_Task extends Task {
+class Groovy_Task extends Task {
     public function __construct($source, $filename, $input, $params) {
         $params['memorylimit'] = 0;    // Disregard memory limit - let JVM manage memory
         $this->default_params['numprocs'] = 256;     // Java 8 wants lots of processes
