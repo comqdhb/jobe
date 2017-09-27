@@ -13,11 +13,13 @@
 require_once('application/libraries/LanguageTask.php');
 
 class Nodejs_Task extends Task {
-    public function __construct($source, $filename, $input, $params) {
-        Task::__construct($source, $filename, $input, $params);
+
+    public function __construct($filename, $input, $params) {
+        parent::__construct( $filename, $input, $params);
         //$this->default_params['interpreterargs'] = array('--use_strict');
         // allow running of certain progs that do not work in strict mode
         $this->default_params['interpreterargs'] = array();
+
     }
 
     public static function getVersionCommand() {
