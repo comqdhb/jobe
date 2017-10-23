@@ -71,6 +71,16 @@ EXCEPTION = 2
 
 TEST_SET = [
 
+# ======= Groovy Tests ==============
+{
+    'comment': 'Valid groovy',
+    'language_id': 'groovy',
+    'sourcecode': r'''print("Hello world!\n")
+''',
+    'sourcefilename': 'test',
+    'expect': { 'outcome': 15, 'stdout': 'Hello world!\n' }
+
+},
 # ======= PYTHON3 Tests ===============
 {
     'comment': 'Valid Python3',

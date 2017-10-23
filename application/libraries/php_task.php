@@ -13,7 +13,6 @@
 require_once('application/libraries/LanguageTask.php');
 
 class Php_Task extends Task {
-<<<<<<< HEAD
     public function __construct( $filename, $input, $params) {
         parent::__construct( $filename, $input, $params);
         parent::__construct($filename, $input, $params);
