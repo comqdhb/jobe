@@ -50,8 +50,12 @@ class Java_Task extends Task {
     public function compile() {
         $prog = file_get_contents($this->sourceFileName);
         $compileArgs = $this->getParam('compileargs');
-        $cmd = '/usr/bin/javac ' . implode(' ', $compileArgs) . " {$this->sourceFileName}";
-        list($output, $this->cmpinfo) = $this->run_in_sandbox($cmd);
+	$cmd = '/usr/bin/javac ' . implode(' ', $compileArgs) . " {$this->sourceFileName}";
+	$cname=str_replace(".java",".class",$this->sourceFileName);
+		list($output, $this->cmpinfo) = $this->run_in_sandbox($cmd);
+	if (file_exists($cname)){
+		$this->cmpinfo=NULL;
+	}
         if (empty($this->cmpinfo)) {
             $this->executableFileName = $this->sourceFileName;
         }

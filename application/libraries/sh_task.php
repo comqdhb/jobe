@@ -15,7 +15,20 @@ require_once('application/libraries/LanguageTask.php');
 class Sh_Task extends Task {
     public function __construct($filename, $input, $params) {
         parent::__construct($filename, $input, $params);
-        $this->default_params['interpreterargs'] = array('-BE');
+
+        $this->default_params['numprocs'] = 256;
+	        if (isset($params['numprocs']) && $params['numprocs'] < 256) {
+			            $params['numprocs'] = 256;  // Minimum for Java 8 JVM
+				            }
+	        $this->default_params['memorylimit'] = 20000000;
+	        if (isset($params['memorylimit']) && $params['memorylimit'] < 20000000) {
+			            $params['memorylimit'] = 20000000;  // Minimum for Java 8 JVM
+				            }
+		        $this->default_params['cputime'] = 10;
+		        if (isset($params['cputime']) && $params['cputime'] < 10) {
+				            $params['cputime'] = 10;  // Minimum for Java 8 JVM
+					            }
+
     }
 
      public static function getVersionCommand() {
