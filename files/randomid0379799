@@ -1,0 +1,9 @@
+public class Thing {
+    private String message;
+    public Thing(String message) {
+        this.message = message;
+    }
+    public void printme() {
+        System.out.println(message);
+    }
+}

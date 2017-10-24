@@ -81,6 +81,16 @@ TEST_SET = [
     'expect': { 'outcome': 15, 'stdout': 'Hello world!\n' }
 
 },
+# ======= Sh Tests ==============
+{
+    'comment': 'Valid sh',
+    'language_id': 'sh',
+    'sourcecode': r'''ls compile.out
+''',
+    'sourcefilename': 'test.sh',
+    'expect': { 'outcome': 15, 'stdout': 'compile.out\n' }
+
+},
 # ======= PYTHON3 Tests ===============
 {
     'comment': 'Valid Python3',
