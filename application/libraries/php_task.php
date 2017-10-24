@@ -15,7 +15,6 @@ require_once('application/libraries/LanguageTask.php');
 class Php_Task extends Task {
     public function __construct( $filename, $input, $params) {
         parent::__construct( $filename, $input, $params);
-        parent::__construct($filename, $input, $params);
         //$this->default_params['interpreterargs'] = array('--no-php-ini');
         $this->default_params['memorylimit'] = 20000000;
         if (isset($params['memorylimit']) && $params['memorylimit'] < 20000000) {
