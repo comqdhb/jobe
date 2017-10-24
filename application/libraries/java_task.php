@@ -19,9 +19,13 @@ class Java_Task extends Task {
         $this->default_params['interpreterargs'] = array(
              "-Xrs",   //  reduces usage signals by java, because that generates debug
                        //  output when program is terminated on timelimit exceeded.
-             "-Xss8m",
+	     "-Xss8m",
              "-Xmx200m"
-        );
+             );
+        $this->default_params['compileargs'] = array(
+		"-Xlint:unchecked",
+		"-Xlint:-deprecation"
+             );
 
         if (isset($params['numprocs']) && $params['numprocs'] < 256) {
             $params['numprocs'] = 256;  // Minimum for Java 8 JVM
